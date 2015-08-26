@@ -1,0 +1,5 @@
+development:
+ dbname: "twitter_dev"
+
+testing:
+ dbname: "twitter_spec"
