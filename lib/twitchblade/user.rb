@@ -2,15 +2,13 @@ require 'pg'
 
 module Twitchblade
   class User
-    attr_reader :count
     def initialize(username, password, connection)
       @username = username
       @password = password
       @connection = connection
-      @@count = 0
     end
 
-    def check_username_taken?
+    private def username_present?
       result = @connection.exec("select * from user_info where user_name = '#{@username}'")
       if result.ntuples > 0
         true
@@ -20,8 +18,12 @@ module Twitchblade
     end
 
     def signup
-      result = @connection.exec("INSERT INTO user_info (user_name, password) VALUES ('#{@username}', '#{@password}')")
-      @@count+=1
+      if username_present? == false
+        @connection.exec("INSERT INTO user_info (user_name, password) VALUES ('#{@username}', '#{@password}')")
+        username_present?
+      else
+        false
+      end
     end
 
   end
