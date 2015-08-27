@@ -13,3 +13,8 @@ RSpec.configure do |config|
 end
 
 require 'twitchblade'
+require 'pg'
+require 'figaro'
+
+Figaro.application = Figaro::Application.new(environment: "testing", path: "config/application.yml")
+Figaro.load
