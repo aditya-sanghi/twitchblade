@@ -15,17 +15,25 @@ module Twitchblade
       @connection.exec("delete from user_info")
     end
 
-    context "#username_taken?" do
+    context "#check_username_taken?" do
       it "should return true if user already exits" do
-        @user_1 = User.new("aditya.sng911", "123", @connection)
-        expect(@user_1.username_taken?).to eq(true)
+        user_1 = User.new("aditya.sng911", "123", @connection)
+        expect(user_1.check_username_taken?).to eq(true)
       end
 
       it 'should return false if user does not exist' do
-        @user_1 = User.new("aditya.sng921", "123", @connection)
-        expect(@user_1.username_taken?).to eq(false)
+        user_1 = User.new("aditya.sng921", "123", @connection)
+        expect(user_1.check_username_taken?).to eq(false)
       end
+    end
 
+    context 'signup' do
+      it 'should make insert the record in the tuple' do
+        user_1 = User.new("aditya.sng921", "123", @connection)
+        user_record = user_1.signup
+        user_2 = User.new("aditya.sng921", "123", @connection)
+        expect(user_2.check_username_taken?).to eq(true)
+      end
     end
   end
 end
