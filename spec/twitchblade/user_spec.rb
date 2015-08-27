@@ -8,7 +8,6 @@ module Twitchblade
     end
 
     before(:each) do
-      @user_1 = User.new("aditya.sng911", "123", @connection)
       @connection.exec("insert into user_info (user_name, password) values ('aditya.sng911', '123')")
     end
 
@@ -16,9 +15,15 @@ module Twitchblade
       @connection.exec("delete from user_info")
     end
 
-    context "#username_available?" do
-      it "will check if user already exits" do
+    context "#username_taken?" do
+      it "should return true if user already exits" do
+        @user_1 = User.new("aditya.sng911", "123", @connection)
         expect(@user_1.username_taken?).to eq(true)
+      end
+
+      it 'should return false if user does not exist' do
+        @user_1 = User.new("aditya.sng921", "123", @connection)
+        expect(@user_1.username_taken?).to eq(false)
       end
 
     end
