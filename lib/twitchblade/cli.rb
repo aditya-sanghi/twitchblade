@@ -7,22 +7,21 @@ module Twitchblade
     end
 
     def take_input_and_call_feature
+      puts "Menu"
+      puts "1. Signup"
       puts "enter option: "
       command = Kernel.gets
-
-      if command == 1
+      if command.to_i == 1
         puts "enter new username: "
         username = Kernel.gets
-
         puts "enter new password: "
         password = Kernel.gets
-
         new_user = User.new(username, password, @connection)
-        #new_user.signup
-
-
+        new_user.signup
+      else
+        puts "invalid input"
+        exit
       end
     end
-
   end
 end
