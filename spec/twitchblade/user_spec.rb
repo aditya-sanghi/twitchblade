@@ -13,7 +13,7 @@ module Twitchblade
 
     context 'signup' do
       it 'should make insertion in the table' do
-        user_1 = User.new("aditya.sng921","123", @connection)
+        user_1 = User.new("aditya.sng921", "123", @connection)
         expect(user_1.signup).to eq(true)
       end
 
@@ -33,6 +33,12 @@ module Twitchblade
           @connection.exec("INSERT INTO user_info (user_name, password) VALUES ('aditya', '111')")
           user_1 = User.new("aditya", "123", @connection)
           expect(user_1.login).to eq(false)
+        end
+
+        it 'should pass if username and password do not match' do
+          @connection.exec("INSERT INTO user_info (user_name, password) VALUES ('aditya', '111')")
+          user_1 = User.new("aditya", "111", @connection)
+          expect(user_1.login).to eq(true)
         end
       end
     end

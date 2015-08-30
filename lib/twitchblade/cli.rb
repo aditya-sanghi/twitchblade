@@ -9,7 +9,8 @@ module Twitchblade
     def take_input_and_call_feature
       puts "Menu"
       puts "1. Signup"
-      puts "2. Exit"
+      puts "2. Login"
+      puts "3. Exit"
       puts "enter option: "
       command = Kernel.gets
       if command.to_i == 1
@@ -24,6 +25,17 @@ module Twitchblade
           STDOUT.puts "Signup failed! Username exists"
         end
       elsif command.to_i == 2
+        puts "enter username: "
+        username = Kernel.gets
+        puts "enter password: "
+        password = Kernel.gets
+        new_user = User.new(username, password, @connection)
+        if new_user.login
+          STDOUT.puts "Login Successful!"
+        else
+          STDOUT.puts "Login Failed! Username or Password is incorrect"
+        end
+      elsif command.to_i == 3
         exit
       else
         puts "invalid input"
