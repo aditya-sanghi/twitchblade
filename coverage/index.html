@@ -14,27 +14,27 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-08-28T16:29:11+05:30">2015-08-28T16:29:11+05:30</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-08-30T20:38:43+05:30">2015-08-30T20:38:43+05:30</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">83.93%</span></span>
+    (<span class="covered_percent"><span class="yellow">88.24%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.19
+         1.44
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>5</b> files in total.
-    <b>56</b> relevant lines. 
-    <span class="green"><b>47</b> lines covered</span> and
-    <span class="red"><b>9</b> lines missed </span>
+    <b>68</b> relevant lines. 
+    <span class="green"><b>60</b> lines covered</span> and
+    <span class="red"><b>8</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -62,22 +62,22 @@
       
       <tr>
         <td class="strong"><a href="#b7d60f17a05c96bfa189c75dd62417d540371eed" class="src_link" title="lib/twitchblade/application.rb">lib/twitchblade/application.rb</a></td>
-        <td class="red strong">66.67 %</td>
-        <td>12</td>
-        <td>6</td>
+        <td class="red strong">57.14 %</td>
+        <td>13</td>
+        <td>7</td>
         <td>4</td>
-        <td>2</td>
-        <td>0.7</td>
+        <td>3</td>
+        <td>0.6</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#774d6cc0069c4d223e08278f9178f1ad261dd411" class="src_link" title="lib/twitchblade/cli.rb">lib/twitchblade/cli.rb</a></td>
-        <td class="red strong">50.0 %</td>
-        <td>27</td>
-        <td>14</td>
-        <td>7</td>
-        <td>7</td>
-        <td>0.7</td>
+        <td class="red strong">80.0 %</td>
+        <td>40</td>
+        <td>25</td>
+        <td>20</td>
+        <td>5</td>
+        <td>1.3</td>
       </tr>
       
       <tr>
@@ -87,7 +87,7 @@
         <td>17</td>
         <td>17</td>
         <td>0</td>
-        <td>1.9</td>
+        <td>2.4</td>
       </tr>
       
       <tr>
@@ -191,11 +191,11 @@
         <div class="source_table" id="b7d60f17a05c96bfa189c75dd62417d540371eed">
   <div class="header">
     <h3>lib/twitchblade/application.rb</h3>
-    <h4><span class="red">66.67 %</span> covered</h4>
+    <h4><span class="red">57.14 %</span> covered</h4>
     <div>
-      <b>6</b> relevant lines. 
+      <b>7</b> relevant lines. 
       <span class="green"><b>4</b> lines covered</span> and
-      <span class="red"><b>2</b> lines missed.</span>
+      <span class="red"><b>3</b> lines missed.</span>
     </div>
   </div>
   
@@ -229,46 +229,52 @@
         <li class="missed" data-hits="0" data-linenumber="5">
           
           
-          <code class="ruby">      @cli = Cli.new</code>
+          <code class="ruby">      connection = PG::Connection.open(:dbname =&gt; &#39;testing&#39;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="6">
+        <li class="missed" data-hits="0" data-linenumber="6">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">      @cli = Cli.new(connection)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="7">
           
           
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
+        <li class="covered" data-hits="1" data-linenumber="9">
           <span class="hits">1</span>
           
           <code class="ruby">    def run</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="9">
+        <li class="missed" data-hits="0" data-linenumber="10">
           
           
-          <code class="ruby">      @cli.take_input_and_call_feature</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="10">
-          
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">      @cli.infinite_input_call</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="11">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
           
           
           <code class="ruby">end</code>
@@ -281,11 +287,11 @@
         <div class="source_table" id="774d6cc0069c4d223e08278f9178f1ad261dd411">
   <div class="header">
     <h3>lib/twitchblade/cli.rb</h3>
-    <h4><span class="red">50.0 %</span> covered</h4>
+    <h4><span class="red">80.0 %</span> covered</h4>
     <div>
-      <b>14</b> relevant lines. 
-      <span class="green"><b>7</b> lines covered</span> and
-      <span class="red"><b>7</b> lines missed.</span>
+      <b>25</b> relevant lines. 
+      <span class="green"><b>20</b> lines covered</span> and
+      <span class="red"><b>5</b> lines missed.</span>
     </div>
   </div>
   
@@ -319,7 +325,7 @@
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby">    def initialize(connection = nil)</code>
+          <code class="ruby">    def initialize(connection)</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="6">
@@ -349,106 +355,184 @@
         <li class="covered" data-hits="2" data-linenumber="10">
           <span class="hits">2</span>
           
-          <code class="ruby">      puts &quot;enter option: &quot;</code>
+          <code class="ruby">      puts &quot;Menu&quot;</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="11">
           <span class="hits">2</span>
           
-          <code class="ruby">      command = Kernel.gets.chomp</code>
+          <code class="ruby">      puts &quot;1. Signup&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="12">
+        <li class="covered" data-hits="2" data-linenumber="12">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">      puts &quot;2. Exit&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="13">
+        <li class="covered" data-hits="2" data-linenumber="13">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">      if command == 1</code>
+          <code class="ruby">      puts &quot;enter option: &quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="14">
+        <li class="covered" data-hits="2" data-linenumber="14">
+          <span class="hits">2</span>
           
+          <code class="ruby">      command = Kernel.gets</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="15">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      if command.to_i == 1</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="16">
+          <span class="hits">2</span>
           
           <code class="ruby">        puts &quot;enter new username: &quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="15">
+        <li class="covered" data-hits="2" data-linenumber="17">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">        username = Kernel.gets.chomp</code>
+          <code class="ruby">        username = Kernel.gets</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="16">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="17">
-          
+        <li class="covered" data-hits="2" data-linenumber="18">
+          <span class="hits">2</span>
           
           <code class="ruby">        puts &quot;enter new password: &quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="18">
+        <li class="covered" data-hits="2" data-linenumber="19">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">        password = Kernel.gets.chomp</code>
+          <code class="ruby">        password = Kernel.gets</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="19">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="20">
-          
+        <li class="covered" data-hits="2" data-linenumber="20">
+          <span class="hits">2</span>
           
           <code class="ruby">        new_user = User.new(username, password, @connection)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="21">
+        <li class="covered" data-hits="2" data-linenumber="21">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">        new_user.signup</code>
+          <code class="ruby">        if new_user.signup</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">          STDOUT.puts &quot;New user created&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby">        else</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="covered" data-hits="1" data-linenumber="24">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">          STDOUT.puts &quot;Signup failed! Username exists&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="25">
           
           
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="26">
+          
+          
+          <code class="ruby">      elsif command.to_i == 2</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="27">
+          
+          
+          <code class="ruby">        exit</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby">      else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="29">
+          
+          
+          <code class="ruby">        puts &quot;invalid input&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="34">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def infinite_input_call</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="35">
+          
+          
+          <code class="ruby">      while (true)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="36">
+          
+          
+          <code class="ruby">        take_input_and_call_feature</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="38">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="39">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="27">
+        <li class="never" data-hits="" data-linenumber="40">
           
           
           <code class="ruby">end</code>
@@ -499,7 +583,7 @@
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby">    def initialize(username, password, connection = nil)</code>
+          <code class="ruby">    def initialize(username, password, connection)</code>
         </li>
       
         <li class="covered" data-hits="4" data-linenumber="6">
@@ -538,20 +622,20 @@
           <code class="ruby">    private def username_present?</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="12">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="5" data-linenumber="12">
+          <span class="hits">5</span>
           
           <code class="ruby">      result = @connection.exec(&quot;select * from user_info where user_name = &#39;#{@username}&#39;&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="13">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="5" data-linenumber="13">
+          <span class="hits">5</span>
           
           <code class="ruby">      if result.ntuples &gt; 0</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="14">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="14">
+          <span class="hits">3</span>
           
           <code class="ruby">        true</code>
         </li>
@@ -562,8 +646,8 @@
           <code class="ruby">      else</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="16">
+          <span class="hits">2</span>
           
           <code class="ruby">        false</code>
         </li>
@@ -592,20 +676,20 @@
           <code class="ruby">    def signup</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="21">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="21">
+          <span class="hits">3</span>
           
           <code class="ruby">      if username_present? == false</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="22">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="22">
+          <span class="hits">2</span>
           
           <code class="ruby">        @connection.exec_params(&quot;INSERT INTO user_info (user_name, password) VALUES ($1, $2)&quot;, [@username, @password])</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="23">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="23">
+          <span class="hits">2</span>
           
           <code class="ruby">        username_present?</code>
         </li>

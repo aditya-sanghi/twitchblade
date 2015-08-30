@@ -7,7 +7,7 @@ module Twitchblade
     end
 
     def run
-      @cli.take_input_and_call_feature
+      @cli.infinite_input_call
     end
   end
 end

@@ -2,7 +2,7 @@ require 'pg'
 
 module Twitchblade
   class User
-    def initialize(username, password, connection = nil)
+    def initialize(username, password, connection)
       @username = username
       @password = password
       @connection = connection
