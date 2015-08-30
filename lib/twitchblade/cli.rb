@@ -32,6 +32,7 @@ module Twitchblade
 
 
     def infinite_input_call
+      puts "Welcome to Twitchblade!"
       while (true)
         take_input_and_call_feature
       end

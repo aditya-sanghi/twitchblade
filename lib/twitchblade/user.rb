@@ -26,5 +26,19 @@ module Twitchblade
       end
     end
 
+
+    def login
+      if username_present? == false
+        false
+      else
+        result = @connection.exec_params("select * from user_info where user_name = $1 and password = $2", [@username, @password])
+        if result.ntuples > 0
+          true
+        else
+          false
+        end
+      end
+    end
+
   end
 end

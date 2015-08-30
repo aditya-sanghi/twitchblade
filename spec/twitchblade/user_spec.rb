@@ -22,6 +22,14 @@ module Twitchblade
         user_1 = User.new("aditya", "123", @connection)
         expect(user_1.signup).to eq(false)
       end
+
+      context 'login' do
+        it 'should fail if username does not exist' do
+          user_1 = User.new("aditya", "123", @connection)
+          expect(user_1.login).to eq(false)
+        end
+        
+      end
     end
   end
 end
