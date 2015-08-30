@@ -28,7 +28,12 @@ module Twitchblade
           user_1 = User.new("aditya", "123", @connection)
           expect(user_1.login).to eq(false)
         end
-        
+
+        it 'should fail if username and password do not match' do
+          @connection.exec("INSERT INTO user_info (user_name, password) VALUES ('aditya', '111')")
+          user_1 = User.new("aditya", "123", @connection)
+          expect(user_1.login).to eq(false)
+        end
       end
     end
   end
