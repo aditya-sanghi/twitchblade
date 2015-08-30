@@ -40,6 +40,16 @@ module Twitchblade
           user_1 = User.new("aditya", "111", @connection)
           expect(user_1.login).to eq(true)
         end
+
+        context 'logout' do
+          it 'should make logged_in false' do
+            @connection.exec("INSERT INTO user_info (user_name, password) VALUES ('aditya', '111')")
+            user_1 = User.new("aditya", "111", @connection)
+            user_1.login
+            user_1.logout
+            expect(user_1.logged_in).to eq(false )
+          end
+        end
       end
     end
   end

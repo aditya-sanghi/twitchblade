@@ -2,6 +2,8 @@ require 'pg'
 
 module Twitchblade
   class User
+    attr_reader :logged_in
+
     def initialize(username, password, connection)
       @username = username
       @password = password
@@ -39,6 +41,15 @@ module Twitchblade
         else
           false
         end
+      end
+    end
+
+    def logout
+      if @logged_in
+        @logged_in = false
+        true
+      else
+        false
       end
     end
 
