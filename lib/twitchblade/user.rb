@@ -6,6 +6,7 @@ module Twitchblade
       @username = username
       @password = password
       @connection = connection
+      @logged_in = false
     end
 
     private def username_present?
@@ -33,6 +34,7 @@ module Twitchblade
       else
         result = @connection.exec_params("select * from user_info where user_name = $1 and password = $2", [@username, @password])
         if result.ntuples > 0
+          @logged_in = true
           true
         else
           false
