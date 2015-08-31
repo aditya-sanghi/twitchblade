@@ -7,7 +7,7 @@ module Twitchblade
     end
 
     def take_input_and_call_feature
-      puts "Menu"
+      puts "Main Menu"
       puts "1. Signup"
       puts "2. Login"
       puts "3. Exit"
@@ -24,6 +24,7 @@ module Twitchblade
         else
           STDOUT.puts "Signup failed! Username exists"
         end
+        new_user = nil
       elsif command.to_i == 2
         puts "enter username: "
         username = Kernel.gets
@@ -32,6 +33,22 @@ module Twitchblade
         new_user = User.new(username, password, @connection)
         if new_user.login
           STDOUT.puts "Login Successful!"
+          puts "Welcome #{username}"
+          while (true) do
+            puts "Home"
+            puts "#{username} do you want to:-"
+            puts "1. Logout"
+            puts "Enter choice: "
+            logged_in_user_input = Kernel.gets
+            if logged_in_user_input.to_i == 1
+              new_user.logout
+              puts "You have successfully Logged Out #{username}"
+              break;
+            else
+              puts "Invalid input!"
+            end
+          end
+
         else
           STDOUT.puts "Login Failed! Username or Password is incorrect"
         end
@@ -44,7 +61,9 @@ module Twitchblade
 
 
     def infinite_input_call
+      puts "-----------------------"
       puts "Welcome to Twitchblade!"
+      puts "-----------------------"
       while (true)
         take_input_and_call_feature
       end
