@@ -7,3 +7,6 @@ require 'twitchblade/cli'
 
 
 require 'twitchblade/application'
+
+
+require 'twitchblade/dispatcher'

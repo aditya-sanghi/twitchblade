@@ -1,5 +1,5 @@
 module Twitchblade
-  #job of class is to call twitchblade functionality from
+  #job of class is to call twitchblade features based on user choice
   class Cli
 
     def initialize(connection)
