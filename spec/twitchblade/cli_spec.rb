@@ -9,7 +9,7 @@ module Twitchblade
 
     context 'should call twitchblade features based on user input' do
 
-      
+
     end
   end
 end

@@ -32,6 +32,15 @@ module Twitchblade
         expect(user).to receive(:login)
         dispatcher.invoke_feature
       end
+
+      it 'should call logout feature for the user' do
+        dispatcher = Dispatcher.new(@connection, 2)
+        user = User.new("aditya", "pass123", @connection)
+        allow(Kernel).to receive(:gets).and_return("aditya", "pass123", 1)
+        allow(User).to receive(:new).and_return(user)
+        expect(user).to receive(:logout)
+        dispatcher.invoke_feature
+      end
     end
   end
 end
