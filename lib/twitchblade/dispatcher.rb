@@ -2,7 +2,7 @@ module Twitchblade
   #job of class is to call the twitchblade features
   class Dispatcher
     def initialize(connection, choice)
-      connection = connection
+      @connection = connection
       @choice = choice
     end
 
@@ -39,11 +39,16 @@ module Twitchblade
               puts "You have successfully Logged Out #{username}"
               break;
             else
-              puts "Invalid input!"
+              puts "Invalid input for login menu!"
             end
           end
+        else
+          STDOUT.puts "Login Failed! Username or Password is incorrect"
         end
-
+      elsif @choice == 3
+        exit
+      else
+        puts "Invalid Input for Main Menu"
       end
     end
   end
