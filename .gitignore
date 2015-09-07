@@ -2,4 +2,4 @@
 /coverage/
 .DS_Store
 /config/application.yml
-
+.vagrant/
