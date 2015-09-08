@@ -31,10 +31,19 @@ module Twitchblade
           while (true) do
             puts "Home"
             puts "#{username} do you want to:-"
-            puts "1. Logout"
+            puts "1. Tweet"
+            puts "2. Logout"
             puts "Enter choice: "
             logged_in_user_input = Kernel.gets
             if logged_in_user_input.to_i == 1
+              puts "Enter content for tweet: "
+              tweet = Tweet.new(@connection, username)
+              tweet.make_tweet
+              puts "You have successfully tweeted #{username}"
+              puts "You have just tweeted: "
+              tweet.display_tweet
+              break;
+            elsif logged_in_user_input.to_i == 2
               new_user.logout
               puts "You have successfully Logged Out #{username}"
               break;

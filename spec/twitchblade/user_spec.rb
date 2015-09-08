@@ -1,7 +1,7 @@
 require 'spec_helper.rb'
 
 module Twitchblade
-  describe 'user' do
+  describe 'User' do
 
     before(:all) do
       @connection = PG::Connection.open(:dbname => 'testing')

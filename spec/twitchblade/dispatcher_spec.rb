@@ -1,7 +1,7 @@
 require 'spec_helper'
 module Twitchblade
 
-  describe 'dispatcher' do
+  describe 'Dispatcher' do
 
     before(:all) do
       @connection = PG::Connection.open(:dbname => 'testing')
@@ -36,9 +36,19 @@ module Twitchblade
       it 'should call logout feature for the user' do
         dispatcher = Dispatcher.new(@connection, 2)
         user = User.new("aditya", "pass123", @connection)
-        allow(Kernel).to receive(:gets).and_return("aditya", "pass123", 1)
+        allow(Kernel).to receive(:gets).and_return("aditya", "pass123", 2)
         allow(User).to receive(:new).and_return(user)
         expect(user).to receive(:logout)
+        dispatcher.invoke_feature
+      end
+
+      it 'should call tweet feature for the user' do
+        dispatcher = Dispatcher.new(@connection, 2)
+        User.new("aditya1", "pass123", @connection).signup
+        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 1)
+        tweet = Tweet.new(@connection, "aditya1")
+        allow(Tweet).to receive(:new).and_return(tweet)
+        expect(tweet).to receive(:make_tweet)
         dispatcher.invoke_feature
       end
     end
