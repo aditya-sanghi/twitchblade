@@ -10,3 +10,6 @@ require 'twitchblade/application'
 
 
 require 'twitchblade/dispatcher'
+
+
+require 'twitchblade/tweet'

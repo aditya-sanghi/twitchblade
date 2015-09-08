@@ -7,10 +7,6 @@ module Twitchblade
     end
 
     def run
-      infinite_input
-    end
-
-    def infinite_input
       puts "-----------------------"
       puts "Welcome to Twitchblade!"
       puts "-----------------------"
@@ -21,3 +17,4 @@ module Twitchblade
     end
   end
 end
+

@@ -22,8 +22,8 @@ module Twitchblade
 
     def signup
       if username_present? == false
-        @connection.exec_params("INSERT INTO user_info (user_name, password) VALUES ($1, $2)", [@username, @password])
-        username_present?
+        insertion = @connection.exec_params("INSERT INTO user_info (user_name, password) VALUES ($1, $2)", [@username, @password])
+        insertion.cmd_tuples > 0 ? true:false
       else
         false
       end
