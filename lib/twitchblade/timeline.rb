@@ -10,7 +10,11 @@ module Twitchblade
         false
       else
         tweet_array = @connection.exec("select tweet_content from TWEETS where user_id = '#{@user_id}'").field_values('tweet_content').to_a
-        tweet_array
+        if tweet_array == []
+          false
+        else
+          tweet_array
+        end
       end
     end
   end

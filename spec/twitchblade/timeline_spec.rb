@@ -31,5 +31,11 @@ module Twitchblade
     end
 
 
+    it 'should return false for timeline if there are no tweets on users timeline' do
+      timeline = Timeline.new(@connection)
+      user_1 = User.new("aditya.sng931", "123", @connection).signup
+      expect(timeline.get_timeline("aditya.sng931")).to eq(false)
+    end
+
   end
 end

@@ -27,6 +27,7 @@
     <SUITE FILE_PATH="coverage/twitchblade@cli_should_call_twitchblade_features_based_on_user_input_should_call_logout_feature_for_the_user__twitchblade.coverage" NAME="cli should call twitchblade features based on user input should call logout feature for the user: twitchblade Coverage Results" MODIFIED="1441620276518" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="twitchblade" />
     <SUITE FILE_PATH="coverage/twitchblade@Run_spec__application_spec___twitchblade.coverage" NAME="Run spec 'application_spec': twitchblade Coverage Results" MODIFIED="1440756527564" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="twitchblade" />
     <SUITE FILE_PATH="coverage/twitchblade@Run_spec__tweet_spec___twitchblade.coverage" NAME="Run spec 'tweet_spec': twitchblade Coverage Results" MODIFIED="1441708239982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="twitchblade" />
+    <SUITE FILE_PATH="coverage/twitchblade@Timeline_should_return_false_for_timeline_if_there_are_no_tweets_on_users_timeline__twitchblade.coverage" NAME="Timeline should return false for timeline if there are no tweets on users timeline: twitchblade Coverage Results" MODIFIED="1441794977658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="twitchblade" />
     <SUITE FILE_PATH="coverage/twitchblade@Run_spec__user_spec___twitchblade.coverage" NAME="Run spec 'user_spec': twitchblade Coverage Results" MODIFIED="1440687180383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="twitchblade" />
     <SUITE FILE_PATH="coverage/twitchblade@Run_spec__cli_spec___twitchblade.coverage" NAME="Run spec 'cli_spec': twitchblade Coverage Results" MODIFIED="1441619202336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="twitchblade" />
     <SUITE FILE_PATH="coverage/twitchblade@Timeline_should_return_false_for_timeline_if_the_user_does_not_exist__twitchblade.coverage" NAME="Timeline should return false for timeline if the user does not exist: twitchblade Coverage Results" MODIFIED="1441794224697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="twitchblade" />
@@ -92,7 +93,7 @@
         <entry file="file://$PROJECT_DIR$/spec/twitchblade/timeline_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+              <caret line="36" column="49" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -118,11 +119,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="timeline.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="timeline.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/twitchblade/timeline.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2962963">
-              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -138,10 +139,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dispatcher.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dispatcher.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/twitchblade/dispatcher.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="0.18518518">
               <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
               <folding />
             </state>
@@ -349,41 +350,7 @@
       <recent name="$PROJECT_DIR$/lib" />
     </key>
   </component>
-  <component name="RunManager" selected="RSpec.Timeline should return false for timeline if the user does not exist: twitchblade">
-    <configuration default="false" name="dispatcher should call twitchblade features based on argument passed to dispatcher should call tweet feature for the user: twitchblade" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
-      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
-      <module name="twitchblade" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs>
-        <env name="JRUBY_OPTS" value="-X+O" />
-      </envs>
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/twitchblade/dispatcher_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="dispatcher should call twitchblade features based on argument passed to dispatcher should call tweet feature for the user" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="RSpec.Timeline should return false for timeline if there are no tweets on users timeline: twitchblade">
     <configuration default="false" name="Tweet should have last tweet of the user as the currently entered tweet: twitchblade" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
       <predefined_log_file id="RUBY_RSPEC" enabled="true" />
       <module name="twitchblade" />
@@ -496,6 +463,40 @@
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="Timeline should return false for timeline if the user does not exist" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Timeline should return false for timeline if there are no tweets on users timeline: twitchblade" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
+      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
+      <module name="twitchblade" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="JRUBY_OPTS" value="-X+O" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/twitchblade/timeline_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="Timeline should return false for timeline if there are no tweets on users timeline" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
@@ -634,19 +635,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="RSpec.dispatcher should call twitchblade features based on argument passed to dispatcher should call tweet feature for the user: twitchblade" />
-      <item index="1" class="java.lang.String" itemvalue="RSpec.Tweet should have last tweet of the user as the currently entered tweet: twitchblade" />
-      <item index="2" class="java.lang.String" itemvalue="RSpec.Timeline should retrieve all the tweets of the currently logged-in user: twitchblade" />
-      <item index="3" class="java.lang.String" itemvalue="Ruby.timeline" />
-      <item index="4" class="java.lang.String" itemvalue="RSpec.Timeline should return false for timeline if the user does not exist: twitchblade" />
+      <item index="0" class="java.lang.String" itemvalue="RSpec.Tweet should have last tweet of the user as the currently entered tweet: twitchblade" />
+      <item index="1" class="java.lang.String" itemvalue="RSpec.Timeline should retrieve all the tweets of the currently logged-in user: twitchblade" />
+      <item index="2" class="java.lang.String" itemvalue="Ruby.timeline" />
+      <item index="3" class="java.lang.String" itemvalue="RSpec.Timeline should return false for timeline if the user does not exist: twitchblade" />
+      <item index="4" class="java.lang.String" itemvalue="RSpec.Timeline should return false for timeline if there are no tweets on users timeline: twitchblade" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="RSpec.Timeline should return false for timeline if the user does not exist: twitchblade" />
-        <item index="1" class="java.lang.String" itemvalue="RSpec.Timeline should retrieve all the tweets of the currently logged-in user: twitchblade" />
-        <item index="2" class="java.lang.String" itemvalue="Ruby.timeline" />
-        <item index="3" class="java.lang.String" itemvalue="RSpec.Tweet should have last tweet of the user as the currently entered tweet: twitchblade" />
-        <item index="4" class="java.lang.String" itemvalue="RSpec.dispatcher should call twitchblade features based on argument passed to dispatcher should call tweet feature for the user: twitchblade" />
+        <item index="0" class="java.lang.String" itemvalue="RSpec.Timeline should return false for timeline if there are no tweets on users timeline: twitchblade" />
+        <item index="1" class="java.lang.String" itemvalue="RSpec.Timeline should return false for timeline if the user does not exist: twitchblade" />
+        <item index="2" class="java.lang.String" itemvalue="RSpec.Timeline should retrieve all the tweets of the currently logged-in user: twitchblade" />
+        <item index="3" class="java.lang.String" itemvalue="Ruby.timeline" />
+        <item index="4" class="java.lang.String" itemvalue="RSpec.Tweet should have last tweet of the user as the currently entered tweet: twitchblade" />
       </list>
     </recent_temporary>
   </component>
@@ -1079,22 +1080,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/twitchblade/timeline_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/twitchblade/tweet.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="132" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="132" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/twitchblade/application.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1119,18 +1104,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/twitchblade/dispatcher.rb">
+    <entry file="file://$PROJECT_DIR$/spec/twitchblade/timeline_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+          <caret line="36" column="49" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/twitchblade/timeline.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2962963">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/twitchblade/tweet.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="132" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="132" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/twitchblade/dispatcher.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18518518">
+          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
           <folding />
         </state>
       </provider>
