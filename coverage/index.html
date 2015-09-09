@@ -14,14 +14,14 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-09-09T16:07:03+05:30">2015-09-09T16:07:03+05:30</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-09-09T16:26:38+05:30">2015-09-09T16:26:38+05:30</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">90.57%</span></span>
+    (<span class="covered_percent"><span class="green">90.74%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -32,8 +32,8 @@
   <a name="AllFiles"></a>
   <div>
     <b>10</b> files in total.
-    <b>212</b> relevant lines. 
-    <span class="green"><b>192</b> lines covered</span> and
+    <b>216</b> relevant lines. 
+    <span class="green"><b>196</b> lines covered</span> and
     <span class="red"><b>20</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -82,10 +82,10 @@
       
       <tr>
         <td class="strong"><a href="#dd8a333763c94a8e5d47f8703faa85f2f12086b2" class="src_link" title="lib/twitchblade/dispatcher.rb">lib/twitchblade/dispatcher.rb</a></td>
-        <td class="green strong">91.67 %</td>
-        <td>64</td>
+        <td class="green strong">92.31 %</td>
+        <td>68</td>
+        <td>52</td>
         <td>48</td>
-        <td>44</td>
         <td>4</td>
         <td>1.8</td>
       </tr>
@@ -97,7 +97,7 @@
         <td>12</td>
         <td>12</td>
         <td>0</td>
-        <td>1.7</td>
+        <td>1.8</td>
       </tr>
       
       <tr>
@@ -559,10 +559,10 @@
         <div class="source_table" id="dd8a333763c94a8e5d47f8703faa85f2f12086b2">
   <div class="header">
     <h3>lib/twitchblade/dispatcher.rb</h3>
-    <h4><span class="green">91.67 %</span> covered</h4>
+    <h4><span class="green">92.31 %</span> covered</h4>
     <div>
-      <b>48</b> relevant lines. 
-      <span class="green"><b>44</b> lines covered</span> and
+      <b>52</b> relevant lines. 
+      <span class="green"><b>48</b> lines covered</span> and
       <span class="red"><b>4</b> lines missed.</span>
     </div>
   </div>
@@ -594,14 +594,14 @@
           <code class="ruby">    def initialize(connection, choice)</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="5">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="5">
+          <span class="hits">6</span>
           
           <code class="ruby">      @connection = connection</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="6">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="6">
+          <span class="hits">6</span>
           
           <code class="ruby">      @choice = choice</code>
         </li>
@@ -624,8 +624,8 @@
           <code class="ruby">    def invoke_feature</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="10">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="10">
+          <span class="hits">6</span>
           
           <code class="ruby">      if @choice == 1</code>
         </li>
@@ -696,8 +696,8 @@
           <code class="ruby">        new_user = nil</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="22">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="22">
+          <span class="hits">4</span>
           
           <code class="ruby">      elsif @choice == 2</code>
         </li>
@@ -906,49 +906,73 @@
           <code class="ruby">        end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="57">
-          
+        <li class="covered" data-hits="1" data-linenumber="57">
+          <span class="hits">1</span>
           
           <code class="ruby">      elsif @choice == 3</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="58">
+        <li class="covered" data-hits="1" data-linenumber="58">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        puts &quot;Enter user name whose timeline you wish to view!&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="59">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        username = Kernel.gets</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="60">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        Timeline.new(@connection).get_timeline(username)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="61">
+          
+          
+          <code class="ruby">      elsif @choice == 4</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="62">
           
           
           <code class="ruby">        exit</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="59">
+        <li class="never" data-hits="" data-linenumber="63">
           
           
           <code class="ruby">      else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="60">
+        <li class="missed" data-hits="0" data-linenumber="64">
           
           
           <code class="ruby">        puts &quot;Invalid Input for Main Menu&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="61">
+        <li class="never" data-hits="" data-linenumber="65">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="62">
+        <li class="never" data-hits="" data-linenumber="66">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="63">
+        <li class="never" data-hits="" data-linenumber="67">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="64">
+        <li class="never" data-hits="" data-linenumber="68">
           
           
           <code class="ruby">end</code>
@@ -990,8 +1014,8 @@
           <code class="ruby">    def initialize(connection)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="4">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="4">
+          <span class="hits">4</span>
           
           <code class="ruby">      @connection = connection</code>
         </li>

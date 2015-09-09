@@ -33,6 +33,15 @@ module Twitchblade
         dispatcher.invoke_feature
       end
 
+      it 'should call timeline feature for the guest user' do
+        dispatcher = Dispatcher.new(@connection, 3)
+        timeline = Timeline.new(@connection)
+        allow(Kernel).to receive(:gets).and_return("aditya")
+        allow(Timeline).to receive(:new).and_return(timeline)
+        expect(timeline).to receive(:get_timeline)
+        dispatcher.invoke_feature
+      end
+
       it 'should call logout feature for the user' do
         dispatcher = Dispatcher.new(@connection, 2)
         user = User.new("aditya", "pass123", @connection)

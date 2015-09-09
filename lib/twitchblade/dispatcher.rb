@@ -55,6 +55,10 @@ module Twitchblade
           STDOUT.puts "Login Failed! Username or Password is incorrect"
         end
       elsif @choice == 3
+        puts "Enter user name whose timeline you wish to view!"
+        username = Kernel.gets
+        Timeline.new(@connection).get_timeline(username)
+      elsif @choice == 4
         exit
       else
         puts "Invalid Input for Main Menu"
