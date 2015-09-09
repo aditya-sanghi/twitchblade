@@ -13,3 +13,6 @@ require 'twitchblade/dispatcher'
 
 
 require 'twitchblade/tweet'
+
+
+require 'twitchblade/timeline'
