@@ -7,15 +7,15 @@ module Twitchblade
       @connection = PG::Connection.open(:dbname => 'testing')
     end
 
-    context 'should call twitchblade features based on argument passed to dispatcher' do
-      it 'should create a new user' do
+    context 'Guest or Not Logged-In User' do
+      it 'should be able to create a new user' do
         dispatcher = Dispatcher.new(@connection, 1)
         allow(Kernel).to receive(:gets).and_return("aditya", "pass123")
         expect(User).to receive(:new).and_return(User.new("aditya", "pass123", @connection))
         dispatcher.invoke_feature
       end
 
-      it 'should call signup feature for the user' do
+      it 'should be able to call signup feature' do
         dispatcher = Dispatcher.new(@connection, 1)
         user = User.new("aditya", "pass123", @connection)
         allow(User).to receive(:new).and_return(user)
@@ -24,7 +24,7 @@ module Twitchblade
         dispatcher.invoke_feature
       end
 
-      it 'should call login feature for the user' do
+      it 'should be able to call login feature' do
         dispatcher = Dispatcher.new(@connection, 2)
         user = User.new("aditya", "pass123", @connection)
         allow(Kernel).to receive(:gets).and_return("aditya", "pass123",)
@@ -33,7 +33,7 @@ module Twitchblade
         dispatcher.invoke_feature
       end
 
-      it 'should call timeline feature for the guest user' do
+      it 'should be able to call timeline feature' do
         dispatcher = Dispatcher.new(@connection, 3)
         timeline = Timeline.new(@connection)
         allow(Kernel).to receive(:gets).and_return("aditya")
@@ -44,7 +44,7 @@ module Twitchblade
     end
 
     context "Logged-In user" do
-      it 'should call logout feature for the user' do
+      it 'should be able to call logout feature for the user' do
         dispatcher = Dispatcher.new(@connection, 2)
         user = User.new("aditya", "pass123", @connection)
         allow(Kernel).to receive(:gets).and_return("aditya", "pass123", 4)
@@ -53,7 +53,7 @@ module Twitchblade
         dispatcher.invoke_feature
       end
 
-      it 'should call tweet feature for the user' do
+      it 'should be able to call tweet feature for the user' do
         dispatcher = Dispatcher.new(@connection, 2)
         User.new("aditya1", "pass123", @connection).signup
         allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 1, "my tweet", 4)
@@ -63,7 +63,7 @@ module Twitchblade
         dispatcher.invoke_feature
       end
 
-      it 'should call the logged in users own timeline ' do
+      it 'should be able to call the logged in users own timeline ' do
         dispatcher = Dispatcher.new(@connection, 2)
         timeline = Timeline.new(@connection)
         User.new("aditya1", "pass123", @connection).signup
@@ -73,7 +73,7 @@ module Twitchblade
         dispatcher.invoke_feature
       end
 
-      it "should call someone else's timeline for the logged in user" do
+      it "should be able to call someone else's timeline for the logged in user" do
         dispatcher = Dispatcher.new(@connection, 2)
         timeline = Timeline.new(@connection)
         User.new("aditya1", "pass123", @connection).signup
