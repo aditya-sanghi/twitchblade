@@ -37,7 +37,8 @@ module Twitchblade
             puts "do you want to:-"
             puts "1. Tweet"
             puts "2. View your Timeline"
-            puts "3. Logout"
+            puts "3. View someone else's Timeline"
+            puts "4. Logout"
             puts "Enter choice: "
             logged_in_user_input = Kernel.gets
             if logged_in_user_input.to_i == 1
@@ -52,10 +53,15 @@ module Twitchblade
               timeline.get_timeline(username)
               timeline.display_timeline(username)
             elsif logged_in_user_input.to_i == 3
+              puts "Enter user name whose timeline you wish to view!"
+              target_username = Kernel.gets
+              timeline = Timeline.new(@connection)
+              timeline.get_timeline(target_username)
+              timeline.display_timeline(target_username)
+            elsif logged_in_user_input.to_i == 4
               new_user.logout
               puts "You have successfully Logged Out #{username}"
               break;
-
             else
               puts "Invalid input for login menu!"
             end
