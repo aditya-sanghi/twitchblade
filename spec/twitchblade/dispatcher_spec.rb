@@ -41,7 +41,9 @@ module Twitchblade
         expect(timeline).to receive(:get_timeline)
         dispatcher.invoke_feature
       end
+    end
 
+    context "Logged-In user" do
       it 'should call logout feature for the user' do
         dispatcher = Dispatcher.new(@connection, 2)
         user = User.new("aditya", "pass123", @connection)
@@ -75,7 +77,7 @@ module Twitchblade
         dispatcher = Dispatcher.new(@connection, 2)
         timeline = Timeline.new(@connection)
         User.new("aditya1", "pass123", @connection).signup
-        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 3, "aditya2" ,4)
+        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 3, "aditya2", 4)
         allow(Timeline).to receive(:new).and_return(timeline)
         expect(timeline).to receive(:get_timeline)
         dispatcher.invoke_feature
