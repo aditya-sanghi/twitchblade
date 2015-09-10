@@ -55,14 +55,24 @@ module Twitchblade
     end
 
     def follow(follow_user_name)
-      user_id = @connection.exec("select user_id from user_info where user_name = '#{@username}'").field_values('user_id')[0].to_i
+      @user_id = @connection.exec("select user_id from user_info where user_name = '#{@username}'").field_values('user_id')[0].to_i
       follow_user_id = @connection.exec("select user_id from user_info where user_name = '#{follow_user_name}'").field_values('user_id')[0].to_i
       if follow_user_id != 0
-        @connection.exec_params("INSERT INTO FOLLOWERS (user_id, following_user_id) VALUES ($1, $2)", [user_id, follow_user_id])
+        @connection.exec_params("INSERT INTO FOLLOWERS (user_id, following_user_id) VALUES ($1, $2)", [@user_id, follow_user_id])
         true
       else
         false
       end
     end
+
+    def list_users_being_followed
+      user_names_followed = @connection.exec("select user_name from user_info where user_id in (select following_user_id from followers where user_id = @user_id);").field_values('user_name')
+      #  puts "Users followed are: "
+      # user_names_followed.each do |names|
+      #   puts "==> "
+      #   puts names.to_
+      user_names_followed
+    end
+
   end
 end

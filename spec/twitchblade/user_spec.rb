@@ -8,7 +8,7 @@ module Twitchblade
     end
 
     after(:each) do
-      @connection.exec("delete from user_info")
+      #@connection.exec("delete from user_info")
     end
 
     context 'signup' do
@@ -64,11 +64,20 @@ module Twitchblade
             expect(user_1.follow("saim")).to eq(true)
           end
 
-          it "should  return false if user to be followed does not exist" do
+          it "should return false if user to be followed does not exist" do
             user_1 = User.new("aditya", "111", @connection)
             user_1.signup
             user_1.login
             expect(user_1.follow("saim")).to eq(false)
+          end
+
+          it "should return all the users that are being followed by the logged-in user" do
+            user_1 = User.new("aditya", "111", @connection)
+            user_1.signup
+            user_1.login
+            User.new("saim", "111", @connection).signup
+            user_1.follow("saim")
+            expect(user_1.list_users_being_followed).to match_array ["saim"]
           end
         end
       end
