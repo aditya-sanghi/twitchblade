@@ -1,3 +1,5 @@
+require 'pg'
+
 module Twitchblade
   #job of class is to run the application
   class Application

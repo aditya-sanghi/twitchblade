@@ -1,6 +1,7 @@
-require 'pg'
-
 module Twitchblade
+  #job of class is to model a twitchblade user!
+  #state of class are username and password
+
   class User
     attr_reader :logged_in
 

@@ -23,9 +23,6 @@ module Twitchblade
       if @tweet_array == nil || @user_id == 0
         puts "User does not exist or has no tweets"
       else
-        puts "88888888888887y"
-        puts @tweet_array
-        puts @user_id
         puts "----------------------------------"
         puts "Displaying Timeline of #{user_name}"
         puts "----------------------------------"

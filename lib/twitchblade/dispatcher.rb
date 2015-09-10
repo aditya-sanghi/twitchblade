@@ -29,10 +29,15 @@ module Twitchblade
           STDOUT.puts "Login Successful!"
           puts "Welcome #{username}"
           while (true) do
+            puts "-----------"
             puts "Home"
-            puts "#{username} do you want to:-"
+            puts "-----------"
+            puts "#{username}"
+            puts "-----------"
+            puts "do you want to:-"
             puts "1. Tweet"
-            puts "2. Logout"
+            puts "2. View your Timeline"
+            puts "3. Logout"
             puts "Enter choice: "
             logged_in_user_input = Kernel.gets
             if logged_in_user_input.to_i == 1
@@ -43,9 +48,14 @@ module Twitchblade
               puts "You have just tweeted: "
               tweet.display_tweet
             elsif logged_in_user_input.to_i == 2
+              timeline = Timeline.new(@connection)
+              timeline.get_timeline(username)
+              timeline.display_timeline(username)
+            elsif logged_in_user_input.to_i == 3
               new_user.logout
               puts "You have successfully Logged Out #{username}"
               break;
+
             else
               puts "Invalid input for login menu!"
             end
@@ -55,10 +65,10 @@ module Twitchblade
         end
       elsif @choice == 3
         puts "Enter user name whose timeline you wish to view!"
-        username = Kernel.gets
+        target_username = Kernel.gets
         timeline = Timeline.new(@connection)
-        timeline.get_timeline(username)
-        timeline.display_timeline(username)
+        timeline.get_timeline(target_username)
+        timeline.display_timeline(target_username)
       elsif @choice == 4
         exit
       else
