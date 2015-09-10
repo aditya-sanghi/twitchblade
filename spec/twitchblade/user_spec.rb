@@ -12,15 +12,16 @@ module Twitchblade
     end
 
     context 'signup' do
-      it 'should make insertion in the table' do
+      it 'should register a new username and return true' do
         user_1 = User.new("aditya.sng921", "123", @connection)
         expect(user_1.signup).to eq(true)
       end
 
       it 'should not insert the record in the tuple if username already exists' do
-        @connection.exec("INSERT INTO user_info (user_name, password) VALUES ('aditya', '111')")
         user_1 = User.new("aditya", "123", @connection)
-        expect(user_1.signup).to eq(false)
+        user_1.signup
+        user_2 = User.new("aditya", "123", @connection)
+        expect(user_2.signup).to eq(false)
       end
 
       context 'login' do
@@ -30,24 +31,44 @@ module Twitchblade
         end
 
         it 'should fail if username and password do not match' do
-          @connection.exec("INSERT INTO user_info (user_name, password) VALUES ('aditya', '111')")
           user_1 = User.new("aditya", "123", @connection)
-          expect(user_1.login).to eq(false)
+          user_1.signup
+          user_2 = User.new("aditya", "wrongpassword", @connection)
+          expect(user_2.login).to eq(false)
         end
 
-        it 'should pass if username and password do not match' do
-          @connection.exec("INSERT INTO user_info (user_name, password) VALUES ('aditya', '111')")
-          user_1 = User.new("aditya", "111", @connection)
-          expect(user_1.login).to eq(true)
+        it 'should pass if username and password match' do
+          user_1 = User.new("aditya", "123", @connection)
+          user_1.signup
+          user_2 = User.new("aditya", "123", @connection)
+          expect(user_2.login).to eq(true)
         end
 
         context 'logout' do
           it 'should make logged_in false' do
-            @connection.exec("INSERT INTO user_info (user_name, password) VALUES ('aditya', '111')")
-            user_1 = User.new("aditya", "111", @connection)
+            user_1 = User.new("aditya11", "111", @connection)
+            user_1.signup
             user_1.login
             user_1.logout
-            expect(user_1.logged_in).to eq(false )
+            expect(user_1.logged_in).to eq(false)
+          end
+        end
+
+        context 'follow' do
+          it "should  make currently logged in user to follow another registered  user and return true" do
+            user_1 = User.new("aditya", "111", @connection)
+            user_1.signup
+            user_2 = User.new("saim", "111", @connection)
+            user_2.signup
+            user_1.login
+            expect(user_1.follow("saim")).to eq(true)
+          end
+
+          it "should  return false if user to be followed does not exist" do
+            user_1 = User.new("aditya", "111", @connection)
+            user_1.signup
+            user_1.login
+            expect(user_1.follow("saim")).to eq(false)
           end
         end
       end
