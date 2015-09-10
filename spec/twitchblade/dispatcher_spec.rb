@@ -54,7 +54,7 @@ module Twitchblade
       it 'should call tweet feature for the user' do
         dispatcher = Dispatcher.new(@connection, 2)
         User.new("aditya1", "pass123", @connection).signup
-        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 1)
+        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 1, "my tweet", 2)
         tweet = Tweet.new(@connection, "aditya1")
         allow(Tweet).to receive(:new).and_return(tweet)
         expect(tweet).to receive(:make_tweet)

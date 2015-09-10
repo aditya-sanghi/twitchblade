@@ -11,7 +11,7 @@ module Twitchblade
       user_1 = User.new("aditya.sng93", "123", @connection).signup
       tweet = Tweet.new(@connection, "aditya.sng93")
       allow(Kernel).to receive(:gets).and_return("my tweet is being entered")
-      expect(tweet.make_tweet).to eq(true)
+      expect(tweet.make_tweet).to_not eq(false)
     end
 
     it 'should have last tweet of the user as the currently entered tweet' do

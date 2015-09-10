@@ -13,7 +13,8 @@ module Twitchblade
     def make_tweet
       @user_id = @connection.exec("select user_id from user_info where user_name = '#{@user_name}'").field_values('user_id')[0].to_i
       insertion = @connection.exec_params("INSERT INTO tweets (user_id, tweet_content) VALUES ($1, $2)", [@user_id, input])
-      insertion.cmd_tuples == 1 ? true : false
+      current_tweet_id = @connection.exec("select tweet_id from tweets where user_id = '#{@user_id.to_i}' order by lastmodified desc limit 1").field_values('tweet_id')[0]
+      insertion.cmd_tuples == 1 ? current_tweet_id : false
     end
 
     def display_tweet

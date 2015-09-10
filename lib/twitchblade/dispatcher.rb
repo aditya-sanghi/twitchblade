@@ -42,7 +42,6 @@ module Twitchblade
               puts "You have successfully tweeted #{username}"
               puts "You have just tweeted: "
               tweet.display_tweet
-              break;
             elsif logged_in_user_input.to_i == 2
               new_user.logout
               puts "You have successfully Logged Out #{username}"
@@ -57,7 +56,9 @@ module Twitchblade
       elsif @choice == 3
         puts "Enter user name whose timeline you wish to view!"
         username = Kernel.gets
-        Timeline.new(@connection).get_timeline(username)
+        timeline = Timeline.new(@connection)
+        timeline.get_timeline(username)
+        timeline.display_timeline(username)
       elsif @choice == 4
         exit
       else

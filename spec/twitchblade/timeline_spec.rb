@@ -12,7 +12,7 @@ module Twitchblade
       @connection.exec("delete from tweets")
     end
 
-    it 'should retrieve all the tweets of the desired user name if the user exits' do
+    it 'should retrieve all the tweets of the desired user name if any tweets for that user exist' do
       timeline = Timeline.new(@connection)
       user_1 = User.new("aditya.sng931", "123", @connection).signup
       tweet = Tweet.new(@connection, "aditya.sng931")
@@ -37,5 +37,18 @@ module Twitchblade
       expect(timeline.get_timeline("aditya.sng931")).to eq(false)
     end
 
+
+    it 'should display all the tweets of the desired if any tweets for that user exist' do
+      timeline = Timeline.new(@connection)
+      user_1 = User.new("aditya.sng931", "123", @connection).signup
+      tweet = Tweet.new(@connection, "aditya.sng931")
+      allow(Kernel).to receive(:gets).and_return("tweet1", "tweet2", "tweet3")
+      tweet_1 = tweet.make_tweet
+      tweet_2 = tweet.make_tweet
+      tweet_3 = tweet.make_tweet
+      tweet_array = timeline.get_timeline("aditya.sng931")
+      pending(STDOUT).to receive(:puts).with("#{tweet_1}", "tweet1", "#{tweet_2}", "tweet2", "#{tweet_3}", "tweet3")
+      timeline.display_timeline("aditya.sng931")
+    end
   end
 end

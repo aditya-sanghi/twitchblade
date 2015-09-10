@@ -1,4 +1,7 @@
 module Twitchblade
+
+  #job of the class is to show the timelines of different users
+  #state of the class is user_id
   class Timeline
     def initialize(connection)
       @connection = connection
@@ -6,14 +9,28 @@ module Twitchblade
 
     def get_timeline(user_name)
       @user_id = @connection.exec("select user_id from user_info where user_name = '#{user_name}'").field_values('user_id')[0].to_i
-      if @user_id == 0
+      @tweet_array = @connection.exec("select tweet_content from TWEETS where user_id = '#{@user_id}'").field_values('tweet_content').to_a
+      @tweet_id_array = @connection.exec("select tweet_id from TWEETS where user_id = '#{@user_id}'").field_values('tweet_id')
+      if @tweet_array == []
         false
       else
-        tweet_array = @connection.exec("select tweet_content from TWEETS where user_id = '#{@user_id}'").field_values('tweet_content').to_a
-        if tweet_array == []
-          false
-        else
-          tweet_array
+        @tweet_array
+      end
+    end
+
+    def display_timeline(user_name)
+
+      if @tweet_array == nil || @user_id == 0
+        puts "User does not exist or has no tweets"
+      else
+        puts "88888888888887y"
+        puts @tweet_array
+        puts @user_id
+        puts "----------------------------------"
+        puts "Displaying Timeline of #{user_name}"
+        puts "----------------------------------"
+        @tweet_id_array.zip(@tweet_array).each do |tweet_id, tweet_content|
+          puts "Tweet ID: #{tweet_id} TWEET: #{tweet_content}"
         end
       end
     end
