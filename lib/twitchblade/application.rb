@@ -4,7 +4,7 @@ module Twitchblade
   #job of class is to run the application
   class Application
     def initialize
-      @connection = PG::Connection.open(:dbname => 'testing')
+      @connection = PG::Connection.open(:dbname => 'development')
       @cli = Cli.new(@connection)
     end
 
