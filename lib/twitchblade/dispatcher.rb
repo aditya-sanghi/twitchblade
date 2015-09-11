@@ -24,8 +24,8 @@ module Twitchblade
         username = Kernel.gets
         puts "enter password: "
         password = Kernel.gets
-        new_user = User.new(username, password, @connection)
-        if new_user.login
+        log_in_user = User.new(username, password, @connection)
+        if log_in_user.login
           STDOUT.puts "Login Successful!"
           puts "Welcome #{username}"
           while (true) do
@@ -38,7 +38,10 @@ module Twitchblade
             puts "1. Tweet"
             puts "2. View your Timeline"
             puts "3. View someone else's Timeline"
-            puts "4. Logout"
+            puts "4. Follow someone"
+            puts "5. View list of who all you are following: "
+            puts "6. View list of your followers: "
+            puts "7. Logout"
             puts "Enter choice: "
             logged_in_user_input = Kernel.gets
             if logged_in_user_input.to_i == 1
@@ -54,12 +57,17 @@ module Twitchblade
               timeline.display_timeline(username)
             elsif logged_in_user_input.to_i == 3
               puts "Enter user name whose timeline you wish to view!"
-              target_username = Kernel.gets
+              username_with_timeline = Kernel.gets
               timeline = Timeline.new(@connection)
-              timeline.get_timeline(target_username)
-              timeline.display_timeline(target_username)
+              timeline.get_timeline(username_with_timeline)
+              timeline.display_timeline(username_with_timeline)
             elsif logged_in_user_input.to_i == 4
-              new_user.logout
+              puts "Enter username of person who you want to follow"
+              username_to_follow = Kernel.gets
+              log_in_user.follow(username_to_follow)
+              puts "You are now following #{username_to_follow}"
+            elsif logged_in_user_input.to_i == 7
+              log_in_user.logout
               puts "You have successfully Logged Out #{username}"
               break;
             else
