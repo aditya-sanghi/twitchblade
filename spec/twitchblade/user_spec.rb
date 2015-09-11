@@ -8,7 +8,7 @@ module Twitchblade
     end
 
     after(:each) do
-      #@connection.exec("delete from user_info")
+      @connection.exec("delete from user_info")
     end
 
     context 'signup' do
@@ -78,6 +78,17 @@ module Twitchblade
             User.new("saim", "111", @connection).signup
             user_1.follow("saim")
             expect(user_1.list_users_being_followed).to match_array ["saim"]
+          end
+
+          it "should return all the users that are following the logged-in user" do
+            user_1 = User.new("aditya", "111", @connection)
+            user_1.signup
+            user_1.login
+            user_2 = User.new("saim", "111", @connection)
+            user_2.signup
+            user_1.follow("saim")
+            user_2.login
+            expect(user_2.list_followers).to match_array ["aditya"]
           end
         end
       end
