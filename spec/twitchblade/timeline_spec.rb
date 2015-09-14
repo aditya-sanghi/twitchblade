@@ -14,7 +14,7 @@ module Twitchblade
 
     it 'should retrieve all the tweets of the desired user name if any tweets for that user exist' do
       timeline = Timeline.new(@connection)
-      user_1 = User.new("aditya.sng931", "123", @connection).signup
+      User.new("aditya.sng931", "123", @connection).signup
       tweet = Tweet.new(@connection, "aditya.sng931")
       allow(Kernel).to receive(:gets).and_return("tweet1", "tweet2", "tweet3")
       tweet.make_tweet

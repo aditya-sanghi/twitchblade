@@ -16,3 +16,6 @@ require 'twitchblade/tweet'
 
 
 require 'twitchblade/timeline'
+
+
+require 'twitchblade/wall'
