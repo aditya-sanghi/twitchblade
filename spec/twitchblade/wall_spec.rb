@@ -33,7 +33,7 @@ module Twitchblade
 
     it 'should return all the tweets of the user as well of users he is following in chronological order!' do
       wall = @wall.get_wall_tweets("aditya.sng931")
-      expect(wall).to match_array ["aditya-tweet-1", "saim-tweet-1", "aditya-tweet-2"]
+      expect(wall).to eq (["aditya-tweet-1", "saim-tweet-1" ,"aditya-tweet-2" ])
     end
   end
 end
