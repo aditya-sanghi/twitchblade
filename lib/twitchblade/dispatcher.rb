@@ -64,8 +64,19 @@ module Twitchblade
             elsif logged_in_user_input.to_i == 4
               puts "Enter username of person who you want to follow"
               username_to_follow = Kernel.gets
-              log_in_user.follow(username_to_follow)
-              puts "You are now following #{username_to_follow}"
+              if log_in_user.follow(username_to_follow)
+                puts "You are now following #{username_to_follow}"
+              else
+                puts "That user does not exist"
+              end
+            elsif logged_in_user_input.to_i == 5
+              puts "You are following:-"
+              list_of_users_being_followed = log_in_user.list_users_being_followed
+              puts list_of_users_being_followed
+            elsif logged_in_user_input.to_i == 6
+              puts "You are being followed by:-"
+              list_of_followers = log_in_user.list_followers
+              puts list_of_followers
             elsif logged_in_user_input.to_i == 7
               log_in_user.logout
               puts "You have successfully Logged Out #{username}"

@@ -25,9 +25,6 @@ module Twitchblade
       if username_present? == false
         insertion = @connection.exec_params("INSERT INTO user_info (user_name, password) VALUES ($1, $2)", [@username, @password])
         if insertion.cmd_tuples > 0
-          @user_id = @connection.exec("select user_id from user_info where user_name = '#{@username}'").field_values('user_id')[0].to_i
-          puts @user_id
-          puts @username
           true
         else
           false
@@ -42,6 +39,7 @@ module Twitchblade
       if username_present? == false
         false
       else
+        @user_id = @connection.exec("select user_id from user_info where user_name = '#{@username}'").field_values('user_id')[0].to_i
         result = @connection.exec_params("select * from user_info where user_name = $1 and password = $2", [@username, @password])
         if result.ntuples > 0
           @logged_in = true
@@ -72,18 +70,21 @@ module Twitchblade
     end
 
     def list_users_being_followed
-      user_names_followed = @connection.exec("select user_name from user_info where user_id in (select following_user_id from followers where user_id = #{@user_id});").field_values('user_name')
-      #  puts "Users followed are: "
-      # user_names_followed.each do |names|
-      #   puts "==> "
-      #   puts names.to_
-      user_names_followed
+      user_names_followed = @connection.exec("select user_name from user_info where user_id in (select following_user_id from followers where user_id = '#{@user_id}');").field_values('user_name')
+      if user_names_followed != []
+        user_names_followed
+      else
+        ["Nobody"]
+      end
     end
 
     def list_followers
-      user_names_of_followers = @connection.exec("select user_name from user_info where user_id in (select user_id from followers where following_user_id = #{@user_id});").field_values('user_name')
-      puts @connection.exec("select user_id from followers where following_user_id = #{@user_id};").field_values('user_id')[0].to_i
-      user_names_of_followers
+      user_names_of_followers = @connection.exec("select user_name from user_info where user_id in (select user_id from followers where following_user_id = '#{@user_id}');").field_values('user_name')
+      if user_names_of_followers != []
+        user_names_of_followers
+      else
+        ["Nobody"]
+      end
     end
 
   end

@@ -1,13 +1,13 @@
 require 'spec_helper'
 module Twitchblade
 
-  describe 'Dispatcher' do
+  describe 'Dispatcher:' do
 
     before(:all) do
       @connection = PG::Connection.open(:dbname => 'testing')
     end
 
-    context 'Guest or Not Logged-In User' do
+    context 'Guest User' do
       it 'should be able to create a new user' do
         dispatcher = Dispatcher.new(@connection, 1)
         allow(Kernel).to receive(:gets).and_return("aditya", "pass123")
@@ -83,7 +83,6 @@ module Twitchblade
         dispatcher.invoke_feature
       end
 
-
       it "should be able to call the follow feature" do
         dispatcher = Dispatcher.new(@connection, 2)
         user = User.new("aditya1", "pass123", @connection)
@@ -91,6 +90,27 @@ module Twitchblade
         allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 4, "aditya2", 7)
         allow(User).to receive(:new).and_return(user)
         expect(user).to receive(:follow)
+        dispatcher.invoke_feature
+      end
+
+      it "should be able to call the feature to view list of people he is following" do
+        dispatcher = Dispatcher.new(@connection, 2)
+        user = User.new("aditya1", "pass123", @connection)
+        user.signup
+        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 5, 7)
+        allow(User).to receive(:new).and_return(user)
+        expect(user).to receive(:list_users_being_followed)
+        dispatcher.invoke_feature
+      end
+
+
+      it "should be able to call the feature to view list of his followers" do
+        dispatcher = Dispatcher.new(@connection, 2)
+        user = User.new("aditya1", "pass123", @connection)
+        user.signup
+        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 6, 7)
+        allow(User).to receive(:new).and_return(user)
+        expect(user).to receive(:list_followers)
         dispatcher.invoke_feature
       end
     end
