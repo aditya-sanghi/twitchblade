@@ -61,7 +61,7 @@ module Twitchblade
 
     def follow(follow_user_name)
       follow_user_id = @connection.exec("select user_id from user_info where user_name = '#{follow_user_name}'").field_values('user_id')[0].to_i
-      if follow_user_id != 0
+      if follow_user_id != 0 && @connection.exec("select user_id from FOLLOWERS where user_id = '#{@user_id}' AND following_user_id = '#{follow_user_id}'").ntuples == 0
         @connection.exec_params("INSERT INTO FOLLOWERS (user_id, following_user_id) VALUES ($1, $2)", [@user_id, follow_user_id])
         true
       else

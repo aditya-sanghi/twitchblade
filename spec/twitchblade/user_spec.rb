@@ -72,6 +72,17 @@ module Twitchblade
           expect(user_1.follow("saim")).to eq(false)
         end
 
+        it "should return false if the logged-in user is already following the entered user" do
+          user_1 = User.new("aditya", "111", @connection)
+          user_1.signup
+          user_2 = User.new("saim", "111", @connection)
+          user_2.signup
+          user_1.login
+          user_1.follow("saim")
+          expect(user_1.follow("saim")).to eq(false)
+        end
+
+
         it "should return all the users that are being followed by the logged-in user" do
           user_1 = User.new("aditya", "111", @connection)
           user_1.signup

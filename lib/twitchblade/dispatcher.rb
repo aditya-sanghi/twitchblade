@@ -67,7 +67,7 @@ module Twitchblade
               if log_in_user.follow(username_to_follow)
                 puts "You are now following #{username_to_follow}"
               else
-                puts "That user does not exist"
+                puts "The user does not exist or you are already following the specified user"
               end
             elsif logged_in_user_input.to_i == 5
               puts "You are following:-"
