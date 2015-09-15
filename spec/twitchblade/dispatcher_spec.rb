@@ -103,7 +103,6 @@ module Twitchblade
         dispatcher.invoke_feature
       end
 
-
       it "should be able to call the feature to view list of his followers" do
         dispatcher = Dispatcher.new(@connection, 2)
         user = User.new("aditya1", "pass123", @connection)
@@ -111,6 +110,18 @@ module Twitchblade
         allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 6, 7)
         allow(User).to receive(:new).and_return(user)
         expect(user).to receive(:list_followers)
+        dispatcher.invoke_feature
+      end
+
+      it "should be able to call the feature to view his wall" do
+        dispatcher = Dispatcher.new(@connection, 2)
+        user = User.new("aditya1", "pass123", @connection)
+        user.signup
+        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 7, 8)
+        allow(User).to receive(:new).and_return(user)
+        wall = Wall.new(@connection, "aditya1")
+        allow(Wall).to receive(:new).and_return(wall)
+        expect(wall).to receive(:display_wall)
         dispatcher.invoke_feature
       end
     end

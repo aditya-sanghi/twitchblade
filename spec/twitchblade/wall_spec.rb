@@ -9,7 +9,6 @@ module Twitchblade
 
     before(:each) do
       @connection.exec("ALTER SEQUENCE tweets_tweet_id_seq RESTART WITH 1")
-      #@connection.exec("UPDATE t SET idcolumn=nextval('seq')")
       @user_1 = User.new("aditya.sng931", "123", @connection)
       @user_1.signup
       @user_2 = User.new("saim931", "123", @connection)
@@ -48,9 +47,5 @@ module Twitchblade
       expect(wall_tweet_ids).to eq (["1", "2", "3"])
     end
 
-    it 'should return all the user names of the tweets of a users wall!' do
-      user_names = @wall.get_user_names
-      expect(user_names).to eq (["aditya.sng931", "saim931", "aditya.sng931"])
-    end
   end
 end
