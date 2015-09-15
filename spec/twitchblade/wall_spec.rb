@@ -42,5 +42,15 @@ module Twitchblade
       wall_tweet_ids = @wall.get_wall_tweet_ids
       expect(wall_tweet_ids).to eq (["1", "2", "3"])
     end
+
+    it 'should return all the tweet IDs of the tweets of the user as well of users he is following in chronological order!' do
+      wall_tweet_ids = @wall.get_wall_tweet_ids
+      expect(wall_tweet_ids).to eq (["1", "2", "3"])
+    end
+
+    it 'should return all the user names of the tweets of a users wall!' do
+      user_names = @wall.get_user_names
+      expect(user_names).to eq (["aditya.sng931", "saim931", "aditya.sng931"])
+    end
   end
 end
