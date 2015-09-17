@@ -47,7 +47,7 @@ module Twitchblade
       it 'should be able to call logout feature for the user' do
         dispatcher = Dispatcher.new(@connection, 2)
         user = User.new("aditya", "pass123", @connection)
-        allow(Kernel).to receive(:gets).and_return("aditya", "pass123", 8)
+        allow(Kernel).to receive(:gets).and_return("aditya", "pass123", 9)
         allow(User).to receive(:new).and_return(user)
         expect(user).to receive(:logout)
         dispatcher.invoke_feature
@@ -56,7 +56,7 @@ module Twitchblade
       it 'should be able to call tweet feature for the user' do
         dispatcher = Dispatcher.new(@connection, 2)
         User.new("aditya1", "pass123", @connection).signup
-        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 1, "my tweet", 8)
+        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 1, "my tweet", 9)
         tweet = Tweet.new(@connection, "aditya1")
         allow(Tweet).to receive(:new).and_return(tweet)
         expect(tweet).to receive(:make_tweet)
@@ -67,7 +67,7 @@ module Twitchblade
         dispatcher = Dispatcher.new(@connection, 2)
         timeline = Timeline.new(@connection)
         User.new("aditya1", "pass123", @connection).signup
-        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 2, 8)
+        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 2, 9)
         allow(Timeline).to receive(:new).and_return(timeline)
         expect(timeline).to receive(:get_timeline)
         dispatcher.invoke_feature
@@ -77,7 +77,7 @@ module Twitchblade
         dispatcher = Dispatcher.new(@connection, 2)
         timeline = Timeline.new(@connection)
         User.new("aditya1", "pass123", @connection).signup
-        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 3, "aditya2", 8)
+        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 3, "aditya2", 9)
         allow(Timeline).to receive(:new).and_return(timeline)
         expect(timeline).to receive(:get_timeline)
         dispatcher.invoke_feature
@@ -87,7 +87,7 @@ module Twitchblade
         dispatcher = Dispatcher.new(@connection, 2)
         user = User.new("aditya1", "pass123", @connection)
         user.signup
-        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 4, "aditya2", 8)
+        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 4, "aditya2", 9)
         allow(User).to receive(:new).and_return(user)
         expect(user).to receive(:follow)
         dispatcher.invoke_feature
@@ -97,7 +97,7 @@ module Twitchblade
         dispatcher = Dispatcher.new(@connection, 2)
         user = User.new("aditya1", "pass123", @connection)
         user.signup
-        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 5, 8)
+        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 5, 9)
         allow(User).to receive(:new).and_return(user)
         expect(user).to receive(:list_users_being_followed)
         dispatcher.invoke_feature
@@ -107,7 +107,7 @@ module Twitchblade
         dispatcher = Dispatcher.new(@connection, 2)
         user = User.new("aditya1", "pass123", @connection)
         user.signup
-        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 6, 8)
+        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 6, 9)
         allow(User).to receive(:new).and_return(user)
         expect(user).to receive(:list_followers)
         dispatcher.invoke_feature
@@ -117,11 +117,21 @@ module Twitchblade
         dispatcher = Dispatcher.new(@connection, 2)
         user = User.new("aditya1", "pass123", @connection)
         user.signup
-        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 7, 8)
+        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 7, 9)
         allow(User).to receive(:new).and_return(user)
         wall = Wall.new(@connection, "aditya1")
         allow(Wall).to receive(:new).and_return(wall)
         expect(wall).to receive(:display_wall)
+        dispatcher.invoke_feature
+      end
+
+      it "should be able to call the feature to RETWEET" do
+        dispatcher = Dispatcher.new(@connection, 2)
+        User.new("aditya1", "pass123", @connection).signup
+        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 8, "123", 9)
+        tweet = Tweet.new(@connection, "aditya1")
+        allow(Tweet).to receive(:new).and_return(tweet)
+        expect(tweet).to receive(:retweet)
         dispatcher.invoke_feature
       end
     end
