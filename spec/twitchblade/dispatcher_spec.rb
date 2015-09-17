@@ -134,6 +134,31 @@ module Twitchblade
         expect(tweet).to receive(:retweet)
         dispatcher.invoke_feature
       end
+
+      it "should be able to call the feature to DISPLAY RETWEET when retweeting an existing tweet" do
+        @connection.exec("ALTER SEQUENCE tweets_tweet_id_seq RESTART WITH 1")
+        dispatcher = Dispatcher.new(@connection, 2)
+        User.new("aditya1", "pass123", @connection).signup
+        tweet = Tweet.new(@connection, "aditya1")
+        allow(Tweet).to receive(:new).and_return(tweet)
+        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 1, "tweetforretweet", 8, 1, 9)
+        expect(tweet).to receive(:display_retweet)
+        dispatcher.invoke_feature
+        @connection.exec("Delete from tweets")
+      end
+
+
+      it "should NOT be able to call the feature to DISPLAY RETWEET when retweeting an existing tweet" do
+        @connection.exec("ALTER SEQUENCE tweets_tweet_id_seq RESTART WITH 1")
+        dispatcher = Dispatcher.new(@connection, 2)
+        User.new("aditya1", "pass123", @connection).signup
+        tweet = Tweet.new(@connection, "aditya1")
+        allow(Tweet).to receive(:new).and_return(tweet)
+        allow(Kernel).to receive(:gets).and_return("aditya1", "pass123", 1, "tweetforretweet", 8, 2, 9)
+        expect(tweet).to_not receive(:display_retweet)
+        dispatcher.invoke_feature
+        @connection.exec("Delete from tweets")
+      end
     end
   end
 end

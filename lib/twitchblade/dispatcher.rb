@@ -85,10 +85,13 @@ module Twitchblade
             elsif logged_in_user_input.to_i == 8
               tweet = Tweet.new(@connection, username)
               puts "Enter Tweet-ID of the Tweet that you want to RETWEET"
-              tweet.retweet
-              puts "You have successfully REtweeted #{username}"
-              puts "You have just retweeted: "
-             # tweet.display_retweet
+              if tweet.retweet
+                puts "You have successfully REtweeted #{username}"
+                puts "You have just retweeted: "
+                tweet.display_retweet
+              else
+                puts "That is not a Retweetable Tweet-ID"
+              end
             elsif logged_in_user_input.to_i == 9
               logged_in_user.logout
               puts "You have successfully Logged Out #{username}"

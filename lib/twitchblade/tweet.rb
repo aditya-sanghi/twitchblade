@@ -4,6 +4,7 @@ module Twitchblade
     def initialize(connection, user_name)
       @connection = connection
       @user_name = user_name
+      @user_id = @connection.exec("select user_id from user_info where user_name = '#{@user_name}'").field_values('user_id')[0].to_i
     end
 
     def input
@@ -11,7 +12,6 @@ module Twitchblade
     end
 
     def make_tweet
-      @user_id = @connection.exec("select user_id from user_info where user_name = '#{@user_name}'").field_values('user_id')[0].to_i
       inserted_tweet = @connection.exec_params("INSERT INTO tweets (user_id, tweet_content) VALUES ($1, $2)", [@user_id, input])
       current_tweet_id = @connection.exec("select tweet_id from tweets where user_id = '#{@user_id.to_i}' order by lastmodified desc limit 1").field_values('tweet_id')[0]
       inserted_tweet.cmd_tuples == 1 ? current_tweet_id : false
@@ -45,4 +45,3 @@ module Twitchblade
     end
   end
 end
-
