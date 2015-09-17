@@ -42,7 +42,17 @@ module Twitchblade
         allow(Kernel).to receive(:gets).and_return("my tweet is being entered now")
         tweet.make_tweet
         allow(Kernel).to receive(:gets).and_return("1")
-        expect(tweet.retweet).to_not eq(false)
+        expect(tweet.retweet).to eq("1")
+      end
+
+      it 'should not be able to retweet a tweet that does not exist' do
+        User.new("aditya.sng931", "123", @connection).signup
+        tweet = Tweet.new(@connection, "aditya.sng931")
+        allow(Tweet).to receive(:new).and_return(tweet)
+        allow(Kernel).to receive(:gets).and_return("my tweet is being entered now")
+        tweet.make_tweet
+        allow(Kernel).to receive(:gets).and_return("213")
+        expect(tweet.retweet).to eq(false)
       end
     end
   end
