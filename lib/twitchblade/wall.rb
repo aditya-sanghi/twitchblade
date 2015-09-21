@@ -33,7 +33,7 @@ module Twitchblade
         puts "There are no tweets on your wall"
       else
         @wall_tweet_ids.each_with_index do |tweet_id, index|
-          if @connection.exec("select * from RETWEETS where tweet_id = #{tweet_id}").ntuples
+          if @connection.exec("select * from RETWEETS where tweet_id = #{tweet_id}").ntuples == 1
             if @wall_user_names[index] == @user_name
               puts "You ReTweeted:- #{@wall_tweet_content[index]}  Tweet-ID: #{tweet_id}"
             else
