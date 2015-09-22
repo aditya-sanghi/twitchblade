@@ -2,4 +2,9 @@
 $LOAD_PATH.unshift(File.expand_path(File.join(File.dirname(__FILE__), "..", "lib")))
 
 require 'twitchblade'
-Twitchblade::Application.new.run
+begin
+  Twitchblade::Application.new.run
+
+rescue PG::ConnectionBad
+  puts "Postgres Database Connection Unsuccesful!"
+end
