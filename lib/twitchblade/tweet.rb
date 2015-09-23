@@ -34,7 +34,7 @@ module Twitchblade
         if origin_tweet_id == nil
           origin_tweet_id = tweet_id_to_be_retweeted
         end
-        puts @connection.exec_params("INSERT into retweets (tweet_id, tweet_id_retweeted_from, origin_tweet_id ) VALUES ($1, $2, $3)", [@new_tweet_id, tweet_id_to_be_retweeted, origin_tweet_id])
+        @connection.exec_params("INSERT into retweets (tweet_id, tweet_id_retweeted_from, origin_tweet_id ) VALUES ($1, $2, $3)", [@new_tweet_id, tweet_id_to_be_retweeted, origin_tweet_id])
         origin_tweet_id
       end
     end

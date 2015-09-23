@@ -7,4 +7,5 @@ begin
 
 rescue PG::ConnectionBad
   puts "Postgres Database Connection Unsuccesful!"
+  puts "Kindly check the database configuration"
 end
