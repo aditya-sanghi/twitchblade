@@ -39,6 +39,7 @@ Vagrant.configure("2") do |config|
     db.vm.box = "ubuntu/trusty64"
     db.vm.network :private_network, ip: "10.1.1.33"
     db.vm.hostname = "db"
+    db.vm.synced_folder "./", "/home/vagrant/app"
     db.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
     db.vm.provision "shell", privileged: false, inline: <<-SHELL
       echo "Installing Postgresql"
@@ -49,10 +50,12 @@ Vagrant.configure("2") do |config|
       sudo -u postgres psql -c "grant connect on database staging to twitchblade;"
       echo "Setting up listening address"
       echo "listen_addresses = '*'" | sudo tee -a /etc/postgresql/9.3/main/postgresql.conf
-      echo "host    all    all    10.1.1.22/32  password" | sudo tee -a /etc/postgresql/9.3/main/pg_hba.conf
-      echo "host    all    all    10.1.1.1/8  password" | sudo tee -a /etc/postgresql/9.3/main/pg_hba.conf
+      echo "host    all    all    10.1.1.1/24  password" | sudo tee -a /etc/postgresql/9.3/main/pg_hba.conf
       echo "Starting Postgres server through vagrant provisioning"
       sudo service postgresql restart
+      echo "building tables from schema_builder:-"
+      psql staging twitchblade
+      sudo \i ~/app/schema_builder.sql
     SHELL
   end
 end
