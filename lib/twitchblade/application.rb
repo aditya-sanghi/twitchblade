@@ -4,7 +4,7 @@ module Twitchblade
   #job of class is to run the application
   class Application
     def initialize
-      @connection = PG::Connection.open(:dbname => "staging", :host => "10.1.1.33", :port => 5432 )
+      @connection = PG::Connection.open(:dbname => "staging", :user => "twitchblade", :password => "witchblade", :host => "10.1.1.33", :port => 5432 )
       @cli = Cli.new(@connection)
     end
 

@@ -8,7 +8,6 @@ Vagrant.configure("2") do |config|
     cli.vm.hostname = "cli"
     cli.vm.synced_folder "./", "/home/vagrant/app"
     cli.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
-
     cli.vm.provision "shell", privileged: false, inline: <<-SHELL
       echo "Updating system !!"
       sudo apt-get -y update
@@ -44,6 +43,16 @@ Vagrant.configure("2") do |config|
     db.vm.provision "shell", privileged: false, inline: <<-SHELL
       echo "Installing Postgresql"
       sudo apt-get install -y postgresql postgresql-client postgresql-contrib libpq-dev
+      echo "creating twitchblade user with access rights "
+      sudo -u postgres psql -c "create user twitchblade with password 'twitchblade';"
+      sudo -u postgres psql -c "create database staging;"
+      sudo -u postgres psql -c "grant connect on database staging to twitchblade;"
+      echo "Setting up listening address"
+      echo "listen_addresses = '*'" | sudo tee -a /etc/postgresql/9.3/main/postgresql.conf
+      echo "host    all    all    10.1.1.22/32  password" | sudo tee -a /etc/postgresql/9.3/main/pg_hba.conf
+      echo "host    all    all    10.1.1.1/8  password" | sudo tee -a /etc/postgresql/9.3/main/pg_hba.conf
+      echo "Starting Postgres server through vagrant provisioning"
+      sudo service postgresql restart
     SHELL
   end
 end
