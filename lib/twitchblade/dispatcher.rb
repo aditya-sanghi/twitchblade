@@ -1,5 +1,5 @@
 module Twitchblade
-  #job of class is to call the twitchblade features
+  # invokes application features
   class Dispatcher
     def initialize(connection, choice)
       @connection = connection

@@ -3,3 +3,4 @@ development:
 
 testing:
  dbname: "testing"
+

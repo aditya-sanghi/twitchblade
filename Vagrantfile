@@ -55,7 +55,7 @@ Vagrant.configure("2") do |config|
       sudo service postgresql restart
       echo "building tables from schema_builder:-"
       psql staging twitchblade
-      sudo \i ~/app/schema_builder.sql
+      sudo -u postgres psql -c  "i ~/app/schema_builder.sql"
     SHELL
   end
 end
