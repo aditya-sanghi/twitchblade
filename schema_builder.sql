@@ -1,3 +1,5 @@
+create database staging;
+\c staging;
 create table user_info(user_id serial, user_name varchar(40) NOT NULL, password varchar NOT NULL, constraint user_info_pkey primary key (user_id));
 create table followers(user_id integer, following_user_id integer NOT NULL, constraint user_idfk foreign key(user_id) references user_info(user_id) on delete cascade on update cascade, constraint friend_user_fk foreign key (following_user_id) references user_info(user_id) on delete cascade on update cascade );
 create table tweets(tweet_id serial, tweets varchar, user_id integer NOT NULL, last_modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,constraint pkey primary key (tweet_id), constraint fkey foreign key (user_id) references user_info(user_id) match simple on update cascade on delete cascade);
