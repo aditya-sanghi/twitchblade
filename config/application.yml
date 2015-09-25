@@ -1,6 +1,9 @@
 development:
  dbname: "development"
 
-testing:
- dbname: "testing"
-
+staging:
+ dbname: "staging"
+ db_user: "twitchblade"
+ password: "twitchblade"
+ db_host_ip: 10.1.1.33
+ db_host_port: 5432

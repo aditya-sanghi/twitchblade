@@ -1,11 +1,12 @@
 require 'pg'
+require 'figaro'
 
 module Twitchblade
   #job of class is to run the application
   class Application
     def initialize
-      @connection = PG::Connection.open(dbname: "staging", user: "twitchblade", password: "twitchblade",
-                                        host: "10.1.1.33", port: 5432)
+      @connection = PG::Connection.open(dbname: ENV["dbname"], user: ENV["db_user"], password: ENV["password"],
+                                        host: ENV["db_host_ip"], port: ENV["db_host_port"])
       @cli = Cli.new(@connection)
     end
 

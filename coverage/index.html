@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-09-24T17:15:59+05:30">2015-09-24T17:15:59+05:30</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-09-25T14:54:22+05:30">2015-09-25T14:54:22+05:30</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -317,7 +317,7 @@
         <li class="missed" data-hits="0" data-linenumber="7">
           
           
-          <code class="ruby">      @connection = PG::Connection.open(dbname: &quot;staging&quot;, user: &quot;twitchblade&quot;, password: &quot;twitchblade&quot;,</code>
+          <code class="ruby">      @connection = PG::Connection.open(dbname: &quot;staging&quot;, user: ENV[&quot;username&quot;], password: ENV[&quot;password&quot;],</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
@@ -1481,7 +1481,7 @@
         <li class="missed" data-hits="0" data-linenumber="29">
           
           
-          <code class="ruby">        @tweet_ids.zip(@tweet_array).each do |tweet_id, tweet_content|</code>
+          <code class="ruby">        @tweet_ids.zip(@tweets).each do |tweet_id, tweet_content|</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="30">

@@ -110,6 +110,7 @@ module Twitchblade
         timeline.get_timeline(target_username)
         timeline.display_timeline(target_username)
       elsif @choice == 4
+        @connection.close
         exit
       else
         puts "Invalid Input for Main Menu"
