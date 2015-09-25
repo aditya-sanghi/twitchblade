@@ -53,7 +53,7 @@ Vagrant.configure("2") do |config|
       echo "host    all    all    10.1.1.1/24  password" | sudo tee -a /etc/postgresql/9.3/main/pg_hba.conf
       echo "Starting Postgres server through vagrant provisioning"
       sudo service postgresql restart
-      echo "building tables from schema_builder:-"
+      echo "building tables from schema_builder and transferring ownership of all tables to twitchblade user:-"
       sudo -u postgres psql -f app/schema_builder.sql
     SHELL
   end
