@@ -47,7 +47,7 @@ Vagrant.configure("2") do |config|
       echo "creating twitchblade user with access rights "
       sudo -u postgres psql -c "create user twitchblade with password 'twitchblade';"
       sudo -u postgres psql -c "create database staging;"
-      sudo -u postgres psql -c "grant connect on database staging to twitchblade;"
+      sudo -u postgres psql -c "grant all privileges on database staging to twitchblade;"
       echo "Setting up listening address"
       echo "listen_addresses = '*'" | sudo tee -a /etc/postgresql/9.3/main/postgresql.conf
       echo "host    all    all    10.1.1.1/24  password" | sudo tee -a /etc/postgresql/9.3/main/pg_hba.conf

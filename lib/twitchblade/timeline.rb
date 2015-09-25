@@ -26,7 +26,7 @@ module Twitchblade
         puts "----------------------------------"
         puts "Displaying Timeline of #{user_name}"
         puts "----------------------------------"
-        @tweet_ids.zip(@tweet_array).each do |tweet_id, tweet_content|
+        @tweet_ids.zip(@tweets).each do |tweet_id, tweet_content|
           puts "Tweet ID: #{tweet_id} TWEET: #{tweet_content}"
         end
       end
