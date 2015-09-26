@@ -15,7 +15,7 @@ module Twitchblade
       puts "3. View User's Timeline"
       puts "4. Exit"
       puts "enter option: "
-      Kernel.gets
+      $stdin.gets
     end
   end
 end

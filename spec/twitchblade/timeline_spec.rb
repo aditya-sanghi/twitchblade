@@ -16,7 +16,7 @@ module Twitchblade
       timeline = Timeline.new(@connection)
       User.new("aditya.sng931", "123", @connection).signup
       tweet = Tweet.new(@connection, "aditya.sng931")
-      allow(Kernel).to receive(:gets).and_return("tweet1", "tweet2", "tweet3")
+      allow($stdin).to receive(:gets).and_return("tweet1", "tweet2", "tweet3")
       tweet.make_tweet
       tweet.make_tweet
       tweet.make_tweet
@@ -42,7 +42,7 @@ module Twitchblade
       timeline = Timeline.new(@connection)
       user_1 = User.new("aditya.sng931", "123", @connection).signup
       tweet = Tweet.new(@connection, "aditya.sng931")
-      allow(Kernel).to receive(:gets).and_return("tweet1", "tweet2", "tweet3")
+      allow($stdin).to receive(:gets).and_return("tweet1", "tweet2", "tweet3")
       tweet_1 = tweet.make_tweet
       tweet_2 = tweet.make_tweet
       tweet_3 = tweet.make_tweet

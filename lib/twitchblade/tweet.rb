@@ -8,7 +8,7 @@ module Twitchblade
     end
 
     def input
-      Kernel.gets
+      $stdin.gets
     end
 
     def make_tweet

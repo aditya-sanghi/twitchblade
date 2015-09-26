@@ -9,9 +9,9 @@ module Twitchblade
     def invoke_feature
       if @choice == 1
         puts "enter new username: "
-        username = Kernel.gets
+        username = $stdin.gets
         puts "enter new password: "
-        password = Kernel.gets
+        password = $stdin.gets
         new_user = User.new(username, password, @connection)
         if new_user.signup
           STDOUT.puts "New user created"
@@ -21,9 +21,9 @@ module Twitchblade
         new_user = nil
       elsif @choice == 2
         puts "enter username: "
-        username = Kernel.gets
+        username = $stdin.gets
         puts "enter password: "
-        password = Kernel.gets
+        password = $stdin.gets
         logged_in_user = User.new(username, password, @connection)
         if logged_in_user.login
           STDOUT.puts "Login Successful!"
@@ -45,7 +45,7 @@ module Twitchblade
             puts "8. Retweet"
             puts "9. Logout"
             puts "Enter choice: "
-            logged_in_user_input = Kernel.gets
+            logged_in_user_input = $stdin.gets
             if logged_in_user_input.to_i == 1
               puts "Enter content for tweet: "
               tweet = Tweet.new(@connection, username)
@@ -59,13 +59,13 @@ module Twitchblade
               timeline.display_timeline(username)
             elsif logged_in_user_input.to_i == 3
               puts "Enter user name whose timeline you wish to view!"
-              username_to_view_timeline = Kernel.gets
+              username_to_view_timeline = $stdin.gets
               timeline = Timeline.new(@connection)
               timeline.get_timeline(username_to_view_timeline)
               timeline.display_timeline(username_to_view_timeline)
             elsif logged_in_user_input.to_i == 4
               puts "Enter username of person who you want to follow"
-              username_to_follow = Kernel.gets
+              username_to_follow = $stdin.gets
               if logged_in_user.follow(username_to_follow)
                 puts "You are now following #{username_to_follow}"
               else
@@ -105,7 +105,7 @@ module Twitchblade
         end
       elsif @choice == 3
         puts "Enter user name whose timeline you wish to view!"
-        target_username = Kernel.gets
+        target_username = $stdin.gets
         timeline = Timeline.new(@connection)
         timeline.get_timeline(target_username)
         timeline.display_timeline(target_username)

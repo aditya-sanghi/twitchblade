@@ -1,5 +1,8 @@
 development:
  dbname: "development"
+ db_user: "aditya"
+ password: "foo"
+ 
 
 staging:
  dbname: "staging"

@@ -20,14 +20,14 @@ module Twitchblade
       it 'should enter the tweet in the tweet table' do
         User.new("aditya.sng93", "123", @connection).signup
         tweet = Tweet.new(@connection, "aditya.sng93")
-        allow(Kernel).to receive(:gets).and_return("my tweet is being entered")
+        allow($stdin).to receive(:gets).and_return("my tweet is being entered")
         expect(tweet.make_tweet).to_not eq(false)
       end
 
       it 'should have last tweet of the user as the currently entered tweet' do
         User.new("aditya.sng93", "123", @connection).signup
         tweet = Tweet.new(@connection, "aditya.sng93")
-        allow(Kernel).to receive(:gets).and_return("my tweet is being entered now")
+        allow($stdin).to receive(:gets).and_return("my tweet is being entered now")
         tweet.make_tweet
         expect(STDOUT).to receive(:puts).with('my tweet is being entered now')
         tweet.display_tweet
@@ -39,9 +39,9 @@ module Twitchblade
         User.new("aditya.sng931", "123", @connection).signup
         tweet = Tweet.new(@connection, "aditya.sng931")
         allow(Tweet).to receive(:new).and_return(tweet)
-        allow(Kernel).to receive(:gets).and_return("my tweet is being entered now")
+        allow($stdin).to receive(:gets).and_return("my tweet is being entered now")
         tweet.make_tweet
-        allow(Kernel).to receive(:gets).and_return("1")
+        allow($stdin).to receive(:gets).and_return("1")
         expect(tweet.retweet).to eq("1")
       end
 
@@ -49,9 +49,9 @@ module Twitchblade
         User.new("aditya.sng931", "123", @connection).signup
         tweet = Tweet.new(@connection, "aditya.sng931")
         allow(Tweet).to receive(:new).and_return(tweet)
-        allow(Kernel).to receive(:gets).and_return("my tweet is being entered now")
+        allow($stdin).to receive(:gets).and_return("my tweet is being entered now")
         tweet.make_tweet
-        allow(Kernel).to receive(:gets).and_return("213")
+        allow($stdin).to receive(:gets).and_return("213")
         expect(tweet.retweet).to eq(false)
       end
     end

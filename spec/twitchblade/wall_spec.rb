@@ -18,11 +18,11 @@ module Twitchblade
       @wall = Wall.new(@connection, "aditya.sng931")
       tweet_for_user_1 = Tweet.new(@connection, "aditya.sng931")
       tweet_for_user_2 = Tweet.new(@connection, "saim931")
-      allow(Kernel).to receive(:gets).and_return("aditya-tweet-1")
+      allow($stdin).to receive(:gets).and_return("aditya-tweet-1")
       tweet_for_user_1.make_tweet
-      allow(Kernel).to receive(:gets).and_return("saim-tweet-1")
+      allow($stdin).to receive(:gets).and_return("saim-tweet-1")
       tweet_for_user_2.make_tweet
-      allow(Kernel).to receive(:gets).and_return("aditya-tweet-2")
+      allow($stdin).to receive(:gets).and_return("aditya-tweet-2")
       tweet_for_user_1.make_tweet
     end
 
