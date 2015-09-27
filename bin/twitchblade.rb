@@ -4,6 +4,7 @@ $LOAD_PATH.unshift(File.expand_path(File.join(File.dirname(__FILE__), "..", "lib
 require 'pg'
 require 'figaro'
 begin
+  ARGV[0] = "staging"
   Figaro.application = Figaro::Application.new(environment: ARGV[0], path: "../config/application.yml")
   Figaro.load
 
