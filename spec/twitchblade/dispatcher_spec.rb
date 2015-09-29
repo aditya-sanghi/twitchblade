@@ -35,7 +35,7 @@ module Twitchblade
 
       it 'should be able to call timeline feature' do
         dispatcher = Dispatcher.new(@connection, 3)
-        timeline = Timeline.new(@connection)
+        timeline = Timeline.new(@connection, "aditya")
         allow($stdin).to receive(:gets).and_return("aditya")
         allow(Timeline).to receive(:new).and_return(timeline)
         expect(timeline).to receive(:get_timeline)
@@ -65,8 +65,8 @@ module Twitchblade
 
       it 'should be able to call the logged in users own timeline ' do
         dispatcher = Dispatcher.new(@connection, 2)
-        timeline = Timeline.new(@connection)
         User.new("aditya1", "pass123", @connection).signup
+        timeline = Timeline.new(@connection, "aditya1")
         allow($stdin).to receive(:gets).and_return("aditya1", "pass123", 2, 9)
         allow(Timeline).to receive(:new).and_return(timeline)
         expect(timeline).to receive(:get_timeline)
@@ -75,8 +75,8 @@ module Twitchblade
 
       it "should be able to call someone else's timeline for the logged in user" do
         dispatcher = Dispatcher.new(@connection, 2)
-        timeline = Timeline.new(@connection)
         User.new("aditya1", "pass123", @connection).signup
+        timeline = Timeline.new(@connection, "aditya1")
         allow($stdin).to receive(:gets).and_return("aditya1", "pass123", 3, "aditya2", 9)
         allow(Timeline).to receive(:new).and_return(timeline)
         expect(timeline).to receive(:get_timeline)

@@ -3,12 +3,12 @@ module Twitchblade
   #job of the class is to show the timelines of different users
   #state of the class is user_id
   class Timeline
-    def initialize(connection)
+    def initialize(connection, user_name)
       @connection = connection
+      @user_id = @connection.exec("select user_id from user_info where user_name = '#{user_name}'").field_values('user_id')[0].to_i
     end
 
-    def get_timeline(user_name)
-      @user_id = @connection.exec("select user_id from user_info where user_name = '#{user_name}'").field_values('user_id')[0].to_i
+    def get_timeline
       @tweets = @connection.exec("select tweet_content from TWEETS where user_id = '#{@user_id}'").field_values('tweet_content').to_a
       @tweet_ids = @connection.exec("select tweet_id from TWEETS where user_id = '#{@user_id}'").field_values('tweet_id')
       if @tweets == []
